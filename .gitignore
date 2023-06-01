@@ -1,2 +1,3 @@
 /data/cv-corpus-13.0-2023-03-09/
-/data/noise/
+/data/FSDnoisy18k.audio_test/
+/data/labels.csv
