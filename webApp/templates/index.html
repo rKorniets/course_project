@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sound Denoiser</title>
+    <link rel="stylesheet" href="static/style.css">
+    <script src="static/script.js"></script>
+    <script src="static/jQuery/jquery-3.7.0.js"></script>
+</head>
+<body>
+    <div class="background"></div>
+    <div class="main-header">
+        <ul>
+            <li>Home</li>
+            <li>Github</li>
+        </ul>
+    </div>
+    <div class="content-page">
+        <p class="title">SoundDenoiser</p>
+        <p class="description">A web application that removes audio files using deep learning CNN (not that one with lgbt propaganda)</p>
+        <p class="subtitle">How to use:</p>
+        <p class="description">Upload your noisy audio file, wait for the processing to finish, download the processed file</p>
+        <div class="upload-form">
+            <form method="post" enctype="multipart/form-data">
+                <input type="file" name="file" id="noisy-file-button" class="input-file-button" accept="audio/*" onchange=""><label for="noisy-file-button">Choose a file</label>
+            </form>
+        </div>
+        <p class="subtitle">Alternatively</p>
+        <p class="description">You can try how it works - load you file as an example, and we'll add some noise to demonstrate how it works</p>
+        <div class="upload-form">
+            <form method="post" enctype="multipart/form-data">
+                <input type="file" name="file" id="demo-file-button" class="input-file-button" accept="audio/*" onchange=""><label for="demo-file-button">Choose a file</label>
+            </form>
+        </div>
+    </div>
+    <div class="content-page">
+        <div class="noise-graphic"></div>
+    </div>
+</body>
+</html>

@@ -1,3 +1,4 @@
-print("Hello Petro! It's Rostyslav! We need 5 billion code lines to finish this project!")
+import webApp.backend as backend
 
-print("Петро! Павлюк! Де рядки з кодом?!")
+if __name__ == '__main__':
+    backend.run_app(debug=True)
