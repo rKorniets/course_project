@@ -1,0 +1,132 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.2rem;
+    line-height: 1.5;
+    overflow-x: hidden;
+    color: #fff;
+}
+
+input {
+    height: 0.01em;
+    width: 0.01em;
+}
+
+.background {
+    background-image: url("./resources/background_neon.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 100vh;
+    width: 100vw;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    filter: blur(5px) brightness(40%);
+    transform: scale(1.1);
+}
+
+/*header styles*/
+
+.main-header {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    background: linear-gradient(0deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.25) 15%, rgba(0,0,0,1) 100%);
+}
+
+.main-header ul {
+    padding-top: 35px;
+    padding-bottom: 35px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    list-style: none;
+    margin: 0;
+}
+
+.main-header ul li {
+    display: inline-block;
+    marker: none;
+    text-decoration: none;
+    font-size: 1.8em;
+}
+
+.menu-button {
+    color: white;
+}
+
+.menu-button:hover, .menu-button a:hover {
+    color: #aaaaaa !important;
+}
+
+.menu-button a {
+    text-decoration: none;
+    color: white;
+}
+
+.menu-button a:visited{
+    color: white;
+}
+
+/*content part*/
+
+.content-page {
+    padding-top: 10vh;
+    padding-bottom: 10vh;
+    height: 80vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/*text styles*/
+
+.title {
+    font-size: 2.5em;
+    margin-bottom: 0.5em;
+}
+
+.subtitle {
+    font-size: 1.8em;
+    margin-bottom: 0.5em;
+}
+
+.description {
+    font-size: 1.3em;
+    margin-bottom: 0.2em;
+}
+
+/*form styles*/
+
+.upload-form {
+    font-size: 1.5em;
+    padding: 15px;
+}
+
+/*results*/
+.noise-graphic{
+    width: 80%;
+}
+
+.music-player-container {
+    width: 80%;
+    margin-top: 2em;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.music-player-container div {
+    width: 30%;
+}
+
+.music-player-container audio {
+    width: 100%;
+}

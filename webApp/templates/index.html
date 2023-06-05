@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sound Denoiser</title>
+    <link rel="stylesheet" href="static/style.css">
+    <script src="static/script.js"></script>
+    <script src="static/jQuery/jquery-3.7.0.js"></script>
+</head>
+<body>
+    <div class="background"></div>
+    <div class="main-header">
+        <ul>
+            <li class="menu-button" onclick="toggle_to_upload()">Home</li>
+            <li class="menu-button" ><a href="https://github.com/rKorniets/course_project">Github</a></li>
+        </ul>
+    </div>
+    <div id="upload-page" class="content-page">
+        <p class="title">SoundDenoiser</p>
+        <p class="description">A web application that removes audio files using deep learning CNN</p>
+        <p class="subtitle">How to use:</p>
+        <p class="description">Upload your noisy audio file, wait for the processing to finish, download the processed file</p>
+        <div class="upload-form">
+            <form method="post" id="real-upload-form" enctype="multipart/form-data">
+                <input type="file" name="file" id="noisy-file-button" class="input-file-button" accept="audio/mp3,audio/wav" onchange="upload_real_file()"><label for="noisy-file-button">Choose a file</label>
+            </form>
+        </div>
+        <p class="subtitle">Alternatively</p>
+        <p class="description">You can try how it works - load you file as an example, and we'll add some noise to demonstrate how it works</p>
+        <div class="upload-form">
+            <form method="post" id="demo-upload-form" enctype="multipart/form-data">
+                <input type="file" name="file" id="demo-file-button" class="input-file-button" accept="audio/mp3,audio/wav" onchange="upload_demo_file()"><label for="demo-file-button">Choose a file</label>
+            </form>
+        </div>
+    </div>
+    <div id="result-page" class="content-page" style="display: none">
+        <p class="title">SoundDenoiser</p>
+        <div id="plot" class="noise-graphic"></div>
+        <div class="music-player-container"></div>
+    </div>
+</body>
+</html>
