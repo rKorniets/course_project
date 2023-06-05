@@ -56,6 +56,23 @@ input {
     font-size: 1.8em;
 }
 
+.menu-button {
+    color: white;
+}
+
+.menu-button:hover, .menu-button a:hover {
+    color: #aaaaaa !important;
+}
+
+.menu-button a {
+    text-decoration: none;
+    color: white;
+}
+
+.menu-button a:visited{
+    color: white;
+}
+
 /*content part*/
 
 .content-page {
@@ -91,4 +108,25 @@ input {
 .upload-form {
     font-size: 1.5em;
     padding: 15px;
+}
+
+/*results*/
+.noise-graphic{
+    width: 80%;
+}
+
+.music-player-container {
+    width: 80%;
+    margin-top: 2em;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.music-player-container div {
+    width: 30%;
+}
+
+.music-player-container audio {
+    width: 100%;
 }

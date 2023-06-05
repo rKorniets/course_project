@@ -3,6 +3,7 @@ import random
 import torch
 import librosa
 import numpy as np
+import soundfile as sf
 class ModelHelper():
     def __init__(self, model):
         self.model = model
@@ -29,9 +30,14 @@ class ModelHelper():
         speech_noisy = speech.copy()
 
         amount_of_noise = random.randint(2, 4)
+
+        # пиздець у чистому вигляді, треба переробити
+        noisee = [0] * 32001
+        while len(noisee) > 32000:
+            noisee = self.get_noise_file()
+
         for _ in range(amount_of_noise):
 
-            noisee = self.get_noise_file()
             random_index = random.randint(0, len(speech) - len(noisee))
 
             # Додавання елементів з другого масиву до першого починаючи з випадкового індексу
@@ -42,9 +48,17 @@ class ModelHelper():
 
     def demo_filtering(self, path_to_audio):
         audio = librosa.load(path_to_audio, sr=16000)[0]
-        noisy_audio = self.add_noise_to_file(audio)
+        noise_chunks = []
+        for i in range(0, len(audio), 100000):
+            noise_chunks.append(self.add_noise_to_file(audio[i:i + 100000]))
+        noisy_audio = np.concatenate(noise_chunks)
         filtered_audio = self.filter_from_audio(noisy_audio)
         return audio, noisy_audio, filtered_audio
+
+    def real_filtering(self, path_to_audio):
+        audio = librosa.load(path_to_audio, sr=16000)[0]
+        filtered_audio = self.filter_from_audio(audio)
+        return audio, filtered_audio
     def filter_from_file(self, file_path):
         librosa_audio = librosa.load(file_path, sr=16000)[0]
         return self.filter_from_audio(librosa_audio)
@@ -63,4 +77,21 @@ class ModelHelper():
             filtered_chunks.append(filtered)
         filtered = np.concatenate(filtered_chunks)
         audio = np.concatenate(audion_chunks)
-        return audio, filtered
+        return filtered
+
+    @staticmethod
+    def save_to_disk(audio, path_to_save):
+        sf.write(path_to_save, audio, 16000)
+        return path_to_save
+
+    @staticmethod
+    def load_from_disk(path_to_audio):
+        audio = librosa.load(path_to_audio, sr=16000)[0]
+        return audio
+
+    @staticmethod
+    def update_filename(name, word_to_insert):
+        name = name.split('.')
+        name[0] += "_" + word_to_insert
+        name = '.'.join(name)
+        return name
