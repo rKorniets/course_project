@@ -30,7 +30,7 @@ This is a web application that utilizes deep learning Convolutional Neural Netwo
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/your-username/audio-denoising-web-app.git
+   git clone https://github.com/rKorniets/course_project
 2. Install the required dependencies:
 
     ```bash
