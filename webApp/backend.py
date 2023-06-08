@@ -9,11 +9,12 @@ from werkzeug.utils import secure_filename
 from models.modelHelper import ModelHelper
 
 from models.Autoencoder import Autoencoder
+from models.AudioDenoisingCNN import AudioDenoisingCNN
 
 app = Flask(__name__, template_folder="./templates")
-model = Autoencoder(100000)
+model = AudioDenoisingCNN()
 model_helper = None
-PATH_TO_STATE = "./models/saved/better_graphic_but_terrible_sound_2000elem_16batch_1hour.pth"
+PATH_TO_STATE = "./models/saved/new_model_updated_weights.pth"
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 UPLOAD_FOLDER = "./webApp/audiofile/"
 ALLOWED_EXTENSIONS = {'.wav', '.mp3'}
