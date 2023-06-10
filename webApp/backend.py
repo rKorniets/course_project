@@ -113,4 +113,4 @@ def run_app(clear_files_on_start=True, debug=False):
         print("Clearing files on start. Disable this in app.py")
         for file in os.listdir(UPLOAD_FOLDER):
             os.remove(os.path.join(UPLOAD_FOLDER, file))
-    app.run(debug=debug)
+    app.run(host='0.0.0.0', port=os.environ.get('PORT', 5000))
